@@ -190,7 +190,7 @@ namespace :"uni-bd-2013" do
     task :dump_schema do |t, args|
       if ENV['SCHEMA_NAME']
         Dir.mkdir(ENV['SCHEMA_NAME']) unless File.exists?(ENV['SCHEMA_NAME']) 
-        exec("pg_dump -h localhost -U #{ENV['PG_USER']} -W -n #{ENV['SCHEMA_NAME']} --schema-only #{PgTrabajo2.dbname} > #{ENV['SCHEMA_NAME']}/#{ENV['SCHEMA_NAME']}.sql")
+        exec("pg_dump -U #{ENV['PG_USER']} -W -n #{ENV['SCHEMA_NAME']} --schema-only #{PgTrabajo2.dbname} > #{ENV['SCHEMA_NAME']}/#{ENV['SCHEMA_NAME']}.sql")
       else
         puts "Debe especificar el SCHEMA_NAME que ha utilizado para el Trabajo 2." 
         puts "Ejemplo:"
